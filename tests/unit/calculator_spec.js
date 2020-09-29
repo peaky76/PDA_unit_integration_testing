@@ -48,18 +48,13 @@ describe('calculator', function () {
     assert.equal(2, calculator.runningTotal)
   })
 
-  it('can clear the running total', function() {
-    calculator.runningTotal = 10
+  it('can clear the running total without affecting calculation', function() {
+    calculator.numberClick(2)
+    calculator.operatorClick("+")
     calculator.clearClick()
-    calculator.add(2)
-    assert.equal(2, calculator.runningTotal)
+    calculator.numberClick(2)
+    calculator.operatorClick("=")
+    assert.equal(4, calculator.runningTotal)
   }) 
-
-  // calculator.numberClick() - concatenate multiple number button clicks
-  // calculator.operatorClick() - chain multiple operations together
-  // calculator.clearClick() - clear the running total without affecting the calculation
-
-
-
 
 });
